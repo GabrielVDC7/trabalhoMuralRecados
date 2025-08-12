@@ -1,0 +1,104 @@
+/* Importando a fonte Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+:root {
+    --cor-fundo: #f4f9ff;
+    --cor-card: rgba(255, 255, 255, 0.8);
+    --cor-card-borda: rgba(200, 200, 200, 0.4);
+    --cor-primaria: #6ac6ff;
+    --cor-secundaria: #b9e4ff;
+    --cor-texto: #333;
+    --blur: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(180deg, var(--cor-secundaria), var(--cor-fundo));
+    background-attachment: fixed;
+    color: var(--cor-texto);
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+main {
+    width: 100%;
+    max-width: 900px;
+}
+
+ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Estilo dos cards */
+li {
+    background: var(--cor-card);
+    border: 1px solid var(--cor-card-borda);
+    backdrop-filter: blur(var(--blur));
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    animation: fadeInUp 0.4s ease forwards;
+    opacity: 0;
+}
+
+/* Animação de entrada */
+@keyframes fadeInUp {
+    from {
+        transform: translateY(15px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Efeito hover nos cards */
+li:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+}
+
+/* Texto */
+li strong {
+    font-size: 1.1rem;
+    color: var(--cor-primaria);
+    display: block;
+    margin-bottom: 8px;
+}
+
+li p {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+li small {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    li {
+        font-size: 0.9rem;
+        padding: 12px;
+    }
+    li strong {
+        font-size: 1rem;
+    }
+}
